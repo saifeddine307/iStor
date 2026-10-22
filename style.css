@@ -106,6 +106,7 @@ header h1{
 .catygories{
     display: flex;
     gap: 18px;
+    overflow-x: auto;
 }
 .catygory{
     width: 60px;
