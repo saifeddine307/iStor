@@ -331,3 +331,8 @@ header h1{
 .nav-links a.active {
     color: #1677ff;
 }
+footer{
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
