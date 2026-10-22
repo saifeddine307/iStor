@@ -59,7 +59,9 @@ header{
      margin-bottom: 32px;
 }
 header h1{
-    margin: 0px;
+    transform: translateY(-6px);
+    margin: 0;
+    line-height: 1;
     color: #1677ff;
     font-size: 30px;
     font-weight: 800;
@@ -109,7 +111,8 @@ header h1{
     overflow-x: auto;
 }
 .catygory{
-    width: 60px;
+    padding-bottom: 8px;
+    width: auto;
     color: white;
     background-color: #1677ff;
     border: none;
@@ -133,6 +136,7 @@ header h1{
     .products-grid {
         display: grid;
         grid-template-columns: repeat(1 , 1fr);
+        justify-content: center;
     }
     .product-card {
     width: 100%;
@@ -145,6 +149,7 @@ header h1{
         gap: 12px;
         padding: 14px;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     header h1 {
@@ -154,6 +159,7 @@ header h1{
     .Search {
         order: 3;
         flex-basis: 100%;
+        width: 100%;
     }
 
     .cart {
@@ -298,4 +304,20 @@ header h1{
         max-width: 280px;
         margin-top: 20px;
     }
+}
+.nav-links{
+    display: flex ;
+    justify-content: space-between;
+    margin-top: 2.2px;
+    gap: 25px ;
+}
+.nav-links a{
+    font-weight: 500;
+    font-size: 15px;
+    color: gray;
+    text-decoration: none;
+}
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1677ff;
 }
