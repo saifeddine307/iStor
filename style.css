@@ -78,6 +78,16 @@ header h1{
 .Search:focus{
     border-color: #1677ff;
 }
+.filter-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.filter-bar input{
+    width: 300px;
+    accent-color: #1677ff;
+}
 
 .cart{
     display: flex;
