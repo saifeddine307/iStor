@@ -53,8 +53,8 @@
             <div class="filter-bar">
                 <h2
                     style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                    Our products  </h2>
-                    <input type="range">
+                    Our products </h2>
+                <input type="range">
             </div>
             <div class="products-grid">
                 <article class="product-card">
@@ -93,6 +93,17 @@
         </section>
     </main>
     <footer>© 2026 iStor. All rights reserved</footer>
+    <div class="modal-overlay active id="product-modal">
+        <div class="modal-box">
+            <button id="close-modal"
+                style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 18px; cursor: pointer;">✕</button>
+            <img id="modal-img" src="" alt="Product" style="width: 100%; height: 200px; object-fit: contain;">
+            <h2 id="modal-title">اسم المنتج</h2>
+            <p id="modal-price" style="color: #1677ff; font-weight: bold; font-size: 18px;"></p>
+            <p style="color: #64748b; font-size: 14px;">مواصفات سريعة: شاشة OLED، ذاكرة 128GB، أداء فائق.</p>
+            <button class="add-to-cart" style="width: 100%; cursor: pointer;">Add to cart</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 

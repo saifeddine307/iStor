@@ -1,64 +1,37 @@
-
-.product-card{
-    width: 300px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color:white;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.09);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-height: 420px;
-}
-.product-image {
-    width: 100%;
-    border-radius: 12px;
-    max-width: 100%;
-    height: 200px;
-    object-fit: contain;
+/* ==========================================
+   1. الإعدادات العامة والتنسيقات الأساسية
+   ========================================== */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.product-card h3{
-    margin-bottom: 10px;
-}
-.product-card p{
-    margin-bottom: 10px;
-}
-strong{
+strong {
     margin-top: 10px;
     color: #1677ff;
 }
-.add-to-cart{
-    background-color: #1677ff;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    margin-top: auto;
-    align-self: flex-start;
-}
-.sale-badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background-color: #1677ff;
-    color: white;
 
-    padding: 6px 10px;
-    border-radius: 20px;
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
 }
-header{
-     display: flex;
-     gap: 24px;
-     align-items: center;
-     padding: 18px 28px;
-     background-color: white;
-     border-radius: 16px;
-     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-     margin-bottom: 32px;
+
+
+/* ==========================================
+   2. الهيدر وشريط التنقل (Header & Nav)
+   ========================================== */
+header {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 18px 28px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    margin-bottom: 32px;
 }
-header h1{
+
+header h1 {
     transform: translateY(-6px);
     margin: 0;
     line-height: 1;
@@ -66,30 +39,46 @@ header h1{
     font-size: 30px;
     font-weight: 800;
 }
+
 .Search {
     flex: 1;
     min-width: 0;
-    padding: 13px 16px ;
+    padding: 13px 16px;
     border: 1px solid #e2e5ea;
     border-radius: 21px;
     font-size: 15px;
     outline: none;  
 }
-.Search:focus{
+
+.Search:focus {
     border-color: #1677ff;
 }
-.filter-bar{
+
+.nav-links {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-.filter-bar input{
-    width: 300px;
-    accent-color: #1677ff;
+    margin-top: 2.2px;
+    gap: 25px;
 }
 
-.cart{
+.nav-links a {
+    font-weight: 500;
+    font-size: 15px;
+    color: gray;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1677ff;
+}
+
+
+/* ==========================================
+   3. الأزرار وعربة التسوق (Buttons & Cart)
+   ========================================== */
+.cart {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -98,122 +87,165 @@ header h1{
     color: white;
     border: none;
     border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15px;
     cursor: pointer;
     position: relative;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
-.container{
+
+.cart span.container, 
+.container {
     position: absolute;
     top: -8px;
     right: -8px;
     display: grid;
     justify-content: center;
+    align-items: center;
     height: 22px;
     min-width: 22px;
     border-radius: 50%;
     background-color: black;
     color: white;
+    font-size: 12px;
 }
-.catygories{
+
+.cart:hover {
+    background-color: #095dcc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(22, 119, 255, 0.25);
+}
+
+.add-to-cart {
+    background-color: #1677ff;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-top: auto;
+    align-self: flex-start;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #095dcc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(22, 119, 255, 0.25);
+}
+
+
+/* ==========================================
+   4. الفئات وشريط الفلترة (Categories & Filter)
+   ========================================== */
+.catygories {
     display: flex;
     gap: 18px;
     overflow-x: auto;
 }
-.catygory{
+
+.catygory {
     padding-bottom: 8px;
     width: auto;
     color: white;
     background-color: #1677ff;
     border: none;
     border-radius: 12px;
-    padding: 5px ;
+    padding: 5px 12px;
     cursor: pointer;
-}
-.active{
-    color: black;
-    background-color:white;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit , minmax(200px , 1fr));
-    gap: 24px;
-    justify-items: start;
-}
-@media (max-width: 768px) {
-    .products-grid {
-        display: grid;
-        grid-template-columns: repeat(1 , 1fr);
-        justify-content: center;
-    }
-    .product-card {
-    width: 100%;
-    max-width: 400px;
-    }
-}
-
-@media (max-width: 600px) {
-    header {
-        gap: 12px;
-        padding: 14px;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    header h1 {
-        font-size: 24px;
-    }
-
-    .Search {
-        order: 3;
-        flex-basis: 100%;
-        width: 100%;
-    }
-
-    .cart {
-        margin-left: auto;
-    }
-}
-
-.add-to-cart,
-.cart {
-    transition: background-color 0.25s ease,
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-}
-
-.add-to-cart:hover,
-.cart:hover, .catygory:hover {
+.catygory:hover {
     background-color: #095dcc;
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(22, 119, 255, 0.25);
 }
 
-.product-card {
-    transition: transform 0.25s ease,
-                box-shadow 0.25s ease;
+.active {
+    color: black;
+    background-color: white;
 }
 
-.product-card:hover  {
+.active:hover {
+    background-color: #e2e5ea;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+}
+
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.filter-bar input {
+    width: 300px;
+    accent-color: #1677ff;
+}
+
+
+/* ==========================================
+   5. بطاقات المنتجات والشبكة (Products & Grid)
+   ========================================== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    justify-items: start;
+}
+
+.product-card {
+    width: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.09);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
 }
-.add-to-cart {
-    cursor: pointer;
-    font-weight: 600;
+
+.product-image {
+    width: 100%;
+    border-radius: 12px;
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
 }
 
 .product-card h3 {
+    margin-bottom: 10px;
     font-size: 18px;
     line-height: 1.4;
 }
-.active:hover{
-    background-color:#e2e5ea;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+
+.product-card p {
+    margin-bottom: 10px;
 }
-/* --- تنسيق الـ Hero Banner الاحترافي --- */
+
+.sale-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #1677ff;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+}
+
+
+/* ==========================================
+   6. لوحة الإعلانات البانر (Hero Banner)
+   ========================================== */
 .hero-banner {
     display: flex;
     align-items: center;
@@ -290,8 +322,57 @@ header h1{
     transform: scale(1.03);
 }
 
-/* --- توافقية الشاشات الصغيرة (Responsive) --- */
+
+/* ==========================================
+   7. النافذة المنبثقة (Modal Overlay & Box)
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 500px;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.modal-overlay.active {
+    display:flex ;
+}
+
+
+/* ==========================================
+   8. التجاوب مع الشاشات (Responsive Design)
+   ========================================== */
 @media (max-width: 768px) {
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+    }
+    
+    .product-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
     .hero-banner {
         flex-direction: column;
         text-align: center;
@@ -315,24 +396,26 @@ header h1{
         margin-top: 20px;
     }
 }
-.nav-links{
-    display: flex ;
-    justify-content: space-between;
-    margin-top: 2.2px;
-    gap: 25px ;
-}
-.nav-links a{
-    font-weight: 500;
-    font-size: 15px;
-    color: gray;
-    text-decoration: none;
-}
-.nav-links a:hover,
-.nav-links a.active {
-    color: #1677ff;
-}
-footer{
-    text-align: center;
-    padding: 20px;
-    color: #64748b;
+
+@media (max-width: 600px) {
+    header {
+        gap: 12px;
+        padding: 14px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    .Search {
+        order: 3;
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    .cart {
+        margin-left: auto;
+    }
 }
