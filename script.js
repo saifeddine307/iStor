@@ -1,4 +1,5 @@
 const Card = document.querySelectorAll(".product-card");
+let currentCategory = "all";
 let i = 0 ; 
 function cartCounter(){
     Card.forEach(function(card){
@@ -44,8 +45,8 @@ function LiveSearch(card){
     const Catygories = document.querySelectorAll(".catygory");
     Catygories.forEach(function(catygory){
         const Catygory = catygory.textContent.trim().toLocaleLowerCase();
-        const catySelect = Catygory === "all" || Catygory === Sinput ;
-        if(catySelect && Sresult){
+        const catySelect = Catygory === "all" || Catygory === Sinput || Catygory==="" ;
+        if(Sresult){
             card.style.display= "block" ;
         }else{
            card.style.display = "none" ;
@@ -53,3 +54,11 @@ function LiveSearch(card){
 
     })
 }
+const searchInput = document.querySelector(".Search");
+searchInput.addEventListener("input", function() {
+    const cards = document.querySelectorAll(".product-card"); // أو كلاس البطاقات لديك
+    
+    cards.forEach(function(card) {
+        LiveSearch(card);
+    });
+});
