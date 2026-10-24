@@ -37,3 +37,19 @@ function modelCartOverlay(card){
         modalOver.appendChild(modalBox);
         document.body.appendChild(modalOver);
     }
+function LiveSearch(card){
+    const query = card.querySelector(".productName").textContent.trim().toLowerCase() ;
+    const Sinput = document.querySelector(".Search").value.trim().toLowerCase() ;
+    const Sresult = query.includes(Sinput) ;
+    const Catygories = document.querySelectorAll(".catygory");
+    Catygories.forEach(function(catygory){
+        const Catygory = catygory.textContent.trim().toLocaleLowerCase();
+        const catySelect = Catygory === "all" || Catygory === Sinput ;
+        if(catySelect && Sresult){
+            card.style.display= "block" ;
+        }else{
+           card.style.display = "none" ;
+        }
+
+    })
+}
