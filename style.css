@@ -352,9 +352,27 @@ header h1 {
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
+#close-modal{
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    background: none; 
+    border: none; 
+    font-size: 18px; 
+    cursor: pointer;
+}
 
 .modal-overlay.active {
-    display:flex ;
+    display: hidden ;
+}
+#modal-img{
+    width: 100%; 
+    height: 200px; 
+    object-fit: contain;
+}
+#modal-info{
+    color: #64748b; 
+    font-size: 14px;
 }
 
 
