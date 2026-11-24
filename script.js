@@ -28,20 +28,27 @@ function modelCartOverlay(card){
         modalOver.appendChild(modalBox);
         document.body.appendChild(modalOver);
     }
+const searchInput =  document.querySelector(".Search");
+function applyFilters(){
+    const value =  searchInput.value.trim().toLowerCase();
+    const cards = document.querySelectorAll(".product-card");
+    cards.forEach(function(card){
+        const name  = card.querySelector(".productName").textContent.trim().toLowerCase()  ;
+        const matchName = name.includes(value);
+        const matchCategory = currentCategory === "all" || card.dataset.category === currentCategory ;  
+        if(matchName && matchCategory){
+            card.style.display = "flex" ; 
+        }else{
+            card.style.display = "none" ;
+        }
+    });
+}
+searchInput.addEventListener("input" , applyFilters);
 const categories = document.querySelectorAll(".category");
 categories.forEach(function(category){
     category.addEventListener("click", function(){
-        const text = category.textContent.trim();
-        currentCategory = text;
-        const cards = document.querySelectorAll(".product-card");
-        cards.forEach(function(card){
-            const match = text === "all" || card.dataset.category === text;
-            if(match){
-                card.style.display = "flex";
-            }else{
-                card.style.display = "none";
-            }
-        });
+        currentCategory = category.textContent.trim();
+        applyFilters();
     });
 });
 const products = [
