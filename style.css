@@ -138,13 +138,13 @@ header h1 {
 /* ==========================================
    4. الفئات وشريط الفلترة (Categories & Filter)
    ========================================== */
-.catygories {
+.categories {
     display: flex;
     gap: 18px;
     overflow-x: auto;
 }
 
-.catygory {
+.category {
     padding-bottom: 8px;
     width: auto;
     color: white;
@@ -156,7 +156,7 @@ header h1 {
     transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.catygory:hover {
+.category:hover {
     background-color: #095dcc;
     transform: translateY(-2px);
     box-shadow: 0 5px 12px rgba(22, 119, 255, 0.25);
