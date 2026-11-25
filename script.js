@@ -64,10 +64,18 @@ products.forEach(function(product){
 function renderCart(){
     const itemsBox = document.querySelector("#cart-items");
     itemsBox.innerHTML = "";
-    cart.forEach(function(item){
+    cart.forEach(function(item , index){
         const row = document.createElement("p");
         row.textContent = item.name + "-" + item.price + " DA";
+        const remov  = document.createElement("button");
+        remov.textContent = "Remov";
         itemsBox.appendChild(row);
+        itemsBox.appendChild(remov);
+        remov.addEventListener("click" , function(){
+        cart.splice(index, 1);
+        document.querySelector(".container").textContent = cart.length ; 
+        renderCart();
+        })
     });
     document.querySelector("#cart-total").textContent = getTotal() + " DA";
 }
