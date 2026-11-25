@@ -1,5 +1,5 @@
 let currentCategory = "all";
-let i = 0 ; 
+const cart = [];
 function modelCartOverlay(card){
         const modalOver = document.createElement("div");
         modalOver.className = "modal-overlay active";
@@ -61,13 +61,24 @@ const products = [
 products.forEach(function(product){
     console.log(product.name);
 });
+function renderCart(){
+    const itemsBox = document.querySelector("#cart-items");
+    itemsBox.innerHTML = "";
+    cart.forEach(function(item){
+        const row = document.createElement("p");
+        row.textContent = item.name + "-" + item.price + " DA";
+        itemsBox.appendChild(row);
+    });
+    document.querySelector("#cart-total").textContent = getTotal() + " DA";
+}
 function createCard(product){
     const addBtn = document.createElement("button"); 
     addBtn.className = "add-to-cart"; 
     addBtn.textContent = "Add to cart";
     addBtn.addEventListener("click", function(){
-    i++;
-    document.querySelector(".container").textContent = i;
+    cart.push(product) ;
+    document.querySelector(".container").textContent = cart.length ; 
+    renderCart();
     });
     const  backCard = document.createElement("article"); 
     backCard.className = "product-card" ; 
@@ -92,7 +103,20 @@ function createCard(product){
     backCard.appendChild(addBtn);
     return backCard;
 }
+function getTotal(){
+    let totalPrice = 0;
+    cart.forEach(function(item){
+        totalPrice += item.price ; 
+    })
+    return totalPrice ;
+}
 const grid = document.querySelector(".products-grid");
 products.forEach(function (product) {
     grid.appendChild(createCard(product));
+});
+const cartBtn = document.querySelector(".cart");
+const cartPanel = document.querySelector("#cart-panel");
+
+cartBtn.addEventListener("click", function(){
+    cartPanel.classList.toggle("open");
 });

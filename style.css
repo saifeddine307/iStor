@@ -438,3 +438,19 @@ header h1 {
         margin-left: auto;
     }
 }
+.cart-panel {
+    display: none;
+    position: fixed;
+    top: 90px;
+    right: 28px;
+    width: 320px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+    z-index: 1000;
+}
+
+.cart-panel.open {
+    display: block;
+}
